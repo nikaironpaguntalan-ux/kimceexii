@@ -11,10 +11,13 @@ public class Main {
         System.out.println("        WELCOME TO DEPARTMENT OF JUSTICE RECORD SYSTEM");
         System.out.println("--------------------------------------------------------------");
     while (running) {
+
+     
         loginManager.validateUser();
 
 
-        input.close();
+
+    
         }
 
     }

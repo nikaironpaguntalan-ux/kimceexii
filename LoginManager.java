@@ -1,4 +1,3 @@
-import java.sql.ResultSet;
 import java.util.Scanner;
 
 public class LoginManager {
@@ -8,6 +7,21 @@ public class LoginManager {
     public LoginManager(DataBaseManager dbManager, Scanner input) {
         this.dbManager = dbManager;
         this.input = input;
+
+        
+    }
+
+      
+    public void AddUser() {
+        DataBaseManager dbManager = new DataBaseManager();
+        System.out.print("Enter new username: ");
+        String username = input.nextLine();
+        System.out.print("Enter new password: ");
+        String password = input.nextLine();
+        System.out.print("Enter role: ");
+        String role = input.nextLine();
+        dbManager.AddUser(username, password, role);
+
     }
 
      public void validateUser() {
@@ -17,13 +31,12 @@ public class LoginManager {
             String username = input.nextLine();
             System.out.print("Enter password: ");
             String password = input.nextLine();
+          
 
             boolean isValid = dbManager.validateUser(username, password);
             if (isValid) {
-               String squery = "SELECT role FROM login WHERE username=? AND password=?";
-                          
 
-                System.out.println("Login successful!");
+                
                 return;
             } else {
                 attempts--;
@@ -40,5 +53,8 @@ public class LoginManager {
         }
     }
 
+ 
+
     
+
 }
