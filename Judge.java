@@ -44,6 +44,7 @@ public class Judge extends User {
     }
     public void AddCase() {
         while (true) {
+            JudgeDdManager judgeDdManager = new JudgeDdManager();
             System.out.println("");
             System.out.print("Add Case Number: ");
             String caseNumber = input.nextLine();
@@ -67,9 +68,8 @@ public class Judge extends User {
             String caseStatus = input.nextLine();
             System.out.print("Assign Hearing Date: ");
             String hearingDate = input.nextLine();
-
-            System.out.println("Case added successfully!");
-            System.out.println("Do you want to add another case? (yes/no)");
+            judgeDdManager.addCase(caseNumber, caseType, natureOfCase, dateFiled, accusedName, complainantName, caseStatus, prosecutorName, witnesses, evidence, hearingDate);
+            System.out.print("Do you want to add another case? (yes/no): ");
             String choice = input.nextLine();
 
             if (choice.equalsIgnoreCase("no")) {
@@ -80,15 +80,16 @@ public class Judge extends User {
 
     public void SearchCase() {
         System.out.println("");
-        System.out.print("[1] Search by Case Number: ");
-        System.out.print("[2] Search by Name of The Accused: ");
-        System.out.print("[3] Search by Case Type: ");
-        System.out.print("[4] Search by Nature of Case: ");
-        System.out.print("[5] Search by Name of Complainant: ");
-        System.out.print("[6] Search by Assigned Prosecutor: ");
-        System.out.print("[7] Search by Date Filed: ");
-        System.out.print("[8] Search by Case Status: ");
-        System.out.print("[9] Search by Assigned Hearing Date: ");
+        JudgeDdManager judgeDdManager = new JudgeDdManager();
+        System.out.println("[1] Search by Case Number: ");
+        System.out.println("[2] Search by Name of The Accused: ");
+        System.out.println("[3] Search by Case Type: ");
+        System.out.println("[4] Search by Nature of Case: ");
+        System.out.println("[5] Search by Name of Complainant: ");
+        System.out.println("[6] Search by Assigned Prosecutor: ");
+        System.out.println("[7] Search by Date Filed: ");
+        System.out.println("[8] Search by Case Status: ");
+        System.out.println("[9] Search by Assigned Hearing Date: ");
         System.out.print("Enter your choice: ");
 
         String choice = input.nextLine();
@@ -97,10 +98,12 @@ public class Judge extends User {
             case "1":
                 System.out.print("Enter Case Number: ");
                 String caseNumber = input.nextLine();
+                judgeDdManager.searchCaseId(caseNumber);
                 break;
             case "2":
                 System.out.print("Enter Name of The Accused: ");
                 String accusedName = input.nextLine();
+                judgeDdManager.searchAccused(accusedName);
                 break;
             case "3":
                 System.out.print("Enter Case Type: ");
