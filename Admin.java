@@ -14,6 +14,8 @@ public class Admin extends User {
         System.out.println("             Welcome " + username + "!");
         System.out.println("You have access to the Admin dashboard.");
         System.out.println("-----------------------------------------------");
+        while(true){
+        System.out.println("");
         System.out.println("[1] Add New User ");
         System.out.println("[2] View User List");
         System.out.println("[3] Delete User");
@@ -31,9 +33,11 @@ public class Admin extends User {
             dbManager.DeleteUser(username);
         }else if (choice.equals("4")){
             System.out.println("Exiting Admin dashboard...");
+            break;
         }else{
             System.out.println("Invalid choice. Please try again.");
         }
     }
+}
 } 
 
