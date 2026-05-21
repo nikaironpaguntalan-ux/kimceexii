@@ -7,6 +7,7 @@ public class Staff extends User {
 
     }
     Scanner input = new Scanner(System.in);
+    
 @Override
     public void RoleDashb() {
          System.out.println("-----------------------------------------------");

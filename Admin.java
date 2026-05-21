@@ -30,7 +30,9 @@ public class Admin extends User {
             dbManager.ViewUserList();
         }else if (choice.equals("3")){
             DataBaseManager dbManager = new DataBaseManager();
-            dbManager.DeleteUser(username);
+                System.out.print("Enter username to delete: ");
+                String username = input.nextLine();
+                dbManager.DeleteUser(username);
         }else if (choice.equals("4")){
             System.out.println("Exiting Admin dashboard...");
             break;

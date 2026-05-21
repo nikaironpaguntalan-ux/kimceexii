@@ -27,6 +27,7 @@ public class LoginManager {
      public void validateUser() {
         int attempts = 3;
         while (attempts > 0) {
+            System.out.println("");
             System.out.print("Enter username: ");
             String username = input.nextLine();
             System.out.print("Enter password: ");
@@ -35,7 +36,6 @@ public class LoginManager {
 
             boolean isValid = dbManager.validateUser(username, password);
             if (isValid) {
-
                 
                 return;
             } else {

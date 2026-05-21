@@ -56,9 +56,8 @@ public class DataBaseManager {
         try (Connection connect = getConnection();
              PreparedStatement pstmt = connect.prepareStatement(deleteq)) {
             pstmt.setString(1, username);
+
             int rowsAffected = pstmt.executeUpdate();
-            System.out.print("Enter username to delete: ");
-            username = input.nextLine();
             if (rowsAffected > 0) {
                 System.out.println("User deleted successfully!");
             } else {

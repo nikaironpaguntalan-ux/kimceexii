@@ -7,10 +7,11 @@ public class Main {
         LoginManager loginManager = new LoginManager(dbManager, input);
         boolean running = true;
 
+    
+    while (running) {
         System.out.println("--------------------------------------------------------------");
         System.out.println("        WELCOME TO DEPARTMENT OF JUSTICE RECORD SYSTEM");
         System.out.println("--------------------------------------------------------------");
-    while (running) {
 
      
         loginManager.validateUser();

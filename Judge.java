@@ -31,12 +31,11 @@ public class Judge extends User {
                 SearchCase();
                 break;
             case 3:
-                //
-              
+    
                 break;
             case 4:
                 System.out.println("Exiting Judge dashboard...");
-                break;
+                return;
             default:
                 System.out.println("Invalid choice. Please try again.");
              }       
@@ -87,11 +86,9 @@ public class Judge extends User {
         System.out.println("[4] Search by Nature of Case: ");
         System.out.println("[5] Search by Name of Complainant: ");
         System.out.println("[6] Search by Assigned Prosecutor: ");
-        System.out.println("[7] Search by Date Filed: ");
-        System.out.println("[8] Search by Case Status: ");
-        System.out.println("[9] Search by Assigned Hearing Date: ");
+        System.out.println("[7] Search by Case Status: ");
+        System.out.println("[8] Search by Assigned Hearing Date: ");
         System.out.print("Enter your choice: ");
-
         String choice = input.nextLine();
 
         switch (choice) {
@@ -106,32 +103,35 @@ public class Judge extends User {
                 judgeDdManager.searchAccused(accusedName);
                 break;
             case "3":
+
                 System.out.print("Enter Case Type: ");
                 String caseType = input.nextLine();
+                judgeDdManager.srchCaseType(caseType);
                 break;
             case "4":
                 System.out.print("Enter Nature of Case: ");
                 String natureOfCase = input.nextLine();
+                judgeDdManager.srchNatureT(natureOfCase);
                 break;
             case "5":
                 System.out.print("Enter Name of Complainant: ");
                 String complainantName = input.nextLine();
+                judgeDdManager.srchCompName(complainantName);
                 break;
             case "6":
                 System.out.print("Enter Assigned Prosecutor: ");
                 String prosecutorName = input.nextLine();
+                judgeDdManager.srchProsec(prosecutorName);
                 break;
             case "7":
-                System.out.print("Enter Date Filed: ");
-                String dateFiled = input.nextLine();
-                break;
-            case "8":
                 System.out.print("Enter Case Status: ");
                 String caseStatus = input.nextLine();
+                judgeDdManager.srchCStatus(caseStatus);
                 break;
-            case "9":
+            case "8":
                 System.out.print("Enter Assigned Hearing Date: ");
                 String hearingDate = input.nextLine();
+                judgeDdManager.srchHDate(hearingDate);
                 break;
             default:
                 System.out.println("Invalid choice. Please try again.");
@@ -140,8 +140,58 @@ public class Judge extends User {
     
     public void UpdateCaseStatus() {
         System.out.println("");
-        System.out.print("Enter Case Number to Update Status: ");
-        String caseNumber = input.nextLine();
+        System.out.println("[1] Update Prosecutor Name: ");
+        System.out.println("[2] Update Witness Name: ");
+        System.out.println("[3] Update Evidence: ");
+        System.out.println("[4] Update Case Status: ");
+        System.out.println("[5] Update Hearing Date: ");
+        System.out.print("Enter your choice: ");
+        String choice = input.nextLine();
+        JudgeDdManager judgeDdManager = new JudgeDdManager();
+        switch (choice) {
+            case "1":
+                System.out.print("Enter Case Number: ");
+                String caseNumber = input.nextLine();
+                System.out.print("Enter New Prosecutor Name: ");
+                String prosecutorName = input.nextLine();
+                judgeDdManager.updateProsName(caseNumber, prosecutorName);
+                break;
+            case "2":
+                System.out.print("Enter Case Number: ");
+                String caseNum = input.nextLine();
+                System.out.print("Enter New Witness Name: ");
+                String witnessName = input.nextLine();
+                judgeDdManager.updateWitness(caseNum, witnessName);
+               
+                break;
+            case "3":
+                System.out.print("Enter Case Number: ");
+                String cNumber = input.nextLine();
+                System.out.print("Enter New Evidence: ");
+                String evidence = input.nextLine();
+                judgeDdManager.updateEvidence(cNumber, evidence);
+
+               
+                break;
+            case "4":
+                System.out.print("Enter Case Number: ");
+                String casenumber = input.nextLine();
+                System.out.print("Enter New Case Status: ");
+                String caseStatus = input.nextLine();
+                judgeDdManager.updateCStatus(casenumber, caseStatus);
+               
+                break;
+            case "5":
+                System.out.print("Enter Case Number: ");
+                String cNum = input.nextLine();
+                System.out.print("Enter New Hearing Date: ");
+                String hearingDate = input.nextLine();
+                judgeDdManager.updateHDate(cNum, hearingDate);       
+                break;
+            default:
+                System.out.println("Invalid choice. Please try again.");
+        }
+
 
     }
 
